@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Wallpaper</title>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 1.5s ease-in-out;
+}
+</style>
+</head>
+<body>
+
+<script>
+const wallpapers = [
+    "https://example.com/wallpaper1.jpg",
+    "https://example.com/wallpaper2.jpg",
+    "https://example.com/wallpaper3.jpg"
+];
+
+let index = 0;
+
+function changeWallpaper() {
+    document.body.style.backgroundImage =
+        `url('${wallpapers[index]}')`;
+    index = (index + 1) % wallpapers.length;
+}
+
+// первая загрузка
+changeWallpaper();
+
+// менять каждые 10 секунд
+setInterval(changeWallpaper, 10000);
+</script>
+
+</body>
+</html>
